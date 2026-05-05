@@ -1,0 +1,40 @@
+# dependencies
+**/node_modules/
+**/.pnp/
+**/.yarn/
+
+# builds and framework output
+**/.next/
+**/out/
+**/build/
+**/.vercel/
+**/*.tsbuildinfo
+
+# Python
+**/.venv/
+**/__pycache__/
+**/*.pyc
+backend/.tmp/
+backend/model_weights.h5
+
+# environment and secrets
+**/.env
+**/.env.*
+*.pem
+
+# logs
+*.log
+**/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local QA artifacts
+frontend/qa-*.png
+frontend/qa-*.pdf
+frontend/render-check*.png
+
+# OS/editor
+.DS_Store
+Thumbs.db

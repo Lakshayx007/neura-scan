@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+:root {
+  --background: #0a0a0f;
+  --surface: #111118;
+  --border: #1e1e2e;
+  --accent: #6366f1;
+  --accent-glow: #818cf8;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --foreground: #f7f7fb;
+  --muted: #a1a1b5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-glow: var(--accent-glow);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --animate-ambient-shift: ambient-shift 28s ease-in-out infinite alternate;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), Inter, Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  content: "";
+  background:
+    linear-gradient(120deg, rgba(99, 102, 241, 0.16), transparent 34%, rgba(129, 140, 248, 0.12) 64%, transparent),
+    repeating-radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 5px),
+    radial-gradient(ellipse at top, rgba(99, 102, 241, 0.18), transparent 58%),
+    var(--background);
+  background-size: 180% 180%, 18px 18px, 100% 100%, auto;
+  animation: ambient-shift 32s ease-in-out infinite alternate;
+}
+
+body::after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(129, 140, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129, 140, 248, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+.glass-card {
+  background: rgba(17, 17, 24, 0.8);
+  border: 1px solid #1e1e2e;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+}
+
+.bg-grid-subtle {
+  background-image:
+    linear-gradient(rgba(129, 140, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129, 140, 248, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(129, 140, 248, 0.55) rgba(17, 17, 24, 0.72);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(17, 17, 24, 0.72);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(129, 140, 248, 0.9), rgba(99, 102, 241, 0.62));
+  border: 2px solid rgba(17, 17, 24, 0.9);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(165, 180, 252, 0.96), rgba(99, 102, 241, 0.78));
+}
+
+@keyframes ambient-shift {
+  0% {
+    background-position: 0% 42%, 0 0, center, center;
+  }
+
+  100% {
+    background-position: 100% 58%, 18px 12px, center, center;
+  }
+}
